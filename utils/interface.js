@@ -245,6 +245,7 @@ function updateEmployeeRole() {
 				let tmpEmployee = employeeResults.find(element => element.name == employeeAnswers.employee);
 				let employeeId = (tmpEmployee) ? tmpEmployee.id : null;
 
+				// BUG???  If I select the last employee in the list, I get this error: "UnhandledPromiseRejectionWarning: Error: Can't add new command when connection is in closed state"
 				connection.query(roleSQL, function(err, roleResults) {
 					if (err) {
 						showError(err);
